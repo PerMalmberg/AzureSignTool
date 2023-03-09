@@ -202,7 +202,7 @@ namespace AzureSignTool
         {
             using (var loggerFactory = LoggerFactory.Create(ConfigureLogging))
             {
-                var logger = loggerFactory.CreateLogger<SignCommand>();
+                var logger = new FlushingLogger(); //loggerFactory.CreateLogger<SignCommand>();
                 X509Certificate2Collection certificates;
 
                 switch (GetAdditionalCertificates(AdditionalCertificates, logger))
